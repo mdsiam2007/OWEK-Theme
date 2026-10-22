@@ -1,0 +1,142 @@
+<section class="hero-section" id="about" style="{% if section.settings.bg_color != blank %}background-color: {{ section.settings.bg_color }};{% endif %}">
+  <div class="hero-split-container">
+    <!-- Left Column: Dark Content -->
+    <div class="hero-content-col">
+      <div class="hero-inner-content">
+        <!-- Top Pill Badge -->
+        <div class="hero-badge-container">
+          <div class="hero-badge-pill">
+            <span class="hero-badge-text">{{ section.settings.badge | default: 'Opportunity Shouldn’t Wait.' }}</span>
+          </div>
+        </div>
+
+        <!-- Headline -->
+        {%- if section.settings.custom_title != blank -%}
+          <h1 class="hero-title" style="white-space: pre-line;">{{ section.settings.custom_title | escape }}</h1>
+        {%- else -%}
+          <h1 class="hero-title">
+            <span class="hero-title-line line-1">
+              Your kid’s <span class="opportunity-badge">opportunity</span>
+            </span>
+            <span class="hero-title-line line-2">shouldn’t depend on</span>
+            <span class="hero-title-line line-3">when tuition is due</span>
+          </h1>
+        {%- endif -%}
+
+        <!-- Description -->
+        <p class="hero-description">
+          {{ section.settings.subtitle | default: 'OweK is building flexible financing for private school and camp tuition, giving families more time to pay for what matters now.' }}
+        </p>
+
+        <!-- Waitlist Form (Shopify Customer Form) -->
+        <div class="hero-form-wrapper">
+          {% form 'customer', class: 'hero-waitlist-form' %}
+            {%- if form.posted_successfully? -%}
+              <div class="shopify-submission-success-marker" data-form-type="hero_waitlist" style="display: none;"></div>
+            {%- endif -%}
+            <input type="hidden" name="contact[tags]" value="waitlist, hero_waitlist">
+            <input 
+              type="email" 
+              name="contact[email]"
+              placeholder="{{ section.settings.placeholder | default: 'Enter your email' }}" 
+              required 
+              class="hero-email-input"
+              autocomplete="email"
+              value="{% if customer %}{{ customer.email }}{% endif %}"
+            />
+            <button type="submit" class="hero-submit-btn">
+              <span>{{ section.settings.btn_label | default: 'Join the waitlist' }}</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="hero-btn-arrow">
+                <path d="M5 12H19" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M13 6L19 12L13 18" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          {% endform %}
+
+          <div class="hero-subtext">
+            <span>{{ section.settings.subtext | default: 'Launching soon. Join for early access.' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Students on Campus Image -->
+    <div class="hero-image-col">
+      {%- if section.settings.hero_image != blank -%}
+        <img 
+          src="{{ section.settings.hero_image | image_url: width: 1400 }}" 
+          alt="{{ section.settings.hero_image.alt | default: 'Students on campus' | escape }}" 
+          class="hero-campus-image"
+          loading="eager"
+        />
+      {%- else -%}
+        <img 
+          src="{{ 'rectangle_23113_1e59be39.png' | asset_url }}" 
+          alt="Students with backpacks walking down university campus stairs" 
+          class="hero-campus-image"
+          loading="eager"
+        />
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge Pill Text",
+      "default": "Opportunity Shouldn’t Wait."
+    },
+    {
+      "type": "textarea",
+      "id": "custom_title",
+      "label": "Custom Headline (Optional)",
+      "info": "Leave blank to use the stylized three-line design with the italicized highlight badge."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subhead Description",
+      "default": "OweK is building flexible financing for private school and camp tuition, giving families more time to pay for what matters now."
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Email Input Placeholder",
+      "default": "Enter your email"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button Label",
+      "default": "Join the waitlist"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Disclaimer Subtext",
+      "default": "Launching soon. Join for early access."
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Right Campus Photo"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Hero Background Color",
+      "default": "#000C2A"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Section"
+    }
+  ]
+}
+{% endschema %}

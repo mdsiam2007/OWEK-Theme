@@ -1,0 +1,115 @@
+<section class="cta-banner-section" id="waitlist" style="{% if section.settings.bg_color != blank %}background-color: {{ section.settings.bg_color }};{% endif %}">
+  <!-- Content Container -->
+  <div class="cta-banner-container">
+    <div class="cta-content-col">
+      <div class="cta-headings">
+        <span class="cta-due-now-text">{{ section.settings.badge | default: 'Due now?' }}</span>
+        <h2 class="cta-heading-main">
+          {{ section.settings.title | default: 'More opportunities ahead.' }}
+        </h2>
+      </div>
+
+      <div class="cta-action-group">
+        {% form 'customer', class: 'cta-email-form' %}
+          {%- if form.posted_successfully? -%}
+            <div class="shopify-submission-success-marker" data-form-type="cta_waitlist" style="display: none;"></div>
+          {%- endif -%}
+          <input type="hidden" name="contact[tags]" value="waitlist, cta_waitlist">
+          <input 
+            type="email" 
+            name="contact[email]"
+            placeholder="{{ section.settings.placeholder | default: 'Enter your email' }}" 
+            required 
+            class="cta-input"
+            autocomplete="email"
+            value="{% if customer %}{{ customer.email }}{% endif %}"
+          />
+          <button type="submit" class="cta-submit-btn">
+            <span>{{ section.settings.btn_label | default: 'Join the waitlist' }}</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="cta-btn-arrow">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        {% endform %}
+
+        <p class="cta-helper-text">
+          {{ section.settings.subtitle | default: 'Join the waitlist. Be the first to know when OweK launches.' }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Image: Covers the entire rest of the right side with a smooth convex curve -->
+  <div class="cta-image-wrapper">
+    {%- if section.settings.cta_image != blank -%}
+      <img 
+        src="{{ section.settings.cta_image | image_url: width: 1400 }}" 
+        alt="{{ section.settings.cta_image.alt | default: 'Students on campus' | escape }}" 
+        class="cta-banner-image"
+        loading="lazy"
+      />
+    {%- else -%}
+      <img 
+        src="{{ '010820_oranje-marketing-66.png_a52411e7.png' | asset_url }}" 
+        alt="Students with backpacks on university campus" 
+        class="cta-banner-image"
+        loading="lazy"
+      />
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "CTA Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge Pill / Script Text",
+      "default": "Due now?"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Main Headline",
+      "default": "More opportunities ahead."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle Helper Text",
+      "default": "Join the waitlist. Be the first to know when OweK launches."
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Input Placeholder",
+      "default": "Enter your email"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button Label",
+      "default": "Join the waitlist"
+    },
+    {
+      "type": "image_picker",
+      "id": "cta_image",
+      "label": "Right Banner Photo"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Banner Background Color",
+      "default": "#8B72F5"
+    }
+  ],
+  "presets": [
+    {
+      "name": "CTA Banner"
+    }
+  ]
+}
+{% endschema %}

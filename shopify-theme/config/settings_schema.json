@@ -1,0 +1,66 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "OweK Theme",
+    "theme_version": "1.0.0",
+    "theme_author": "Siam",
+    "theme_documentation_url": "https://owek.local",
+    "theme_support_url": "https://owek.local"
+  },
+  {
+    "name": "Global Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary_purple",
+        "label": "Primary Purple (Brand)",
+        "default": "#8B72F5"
+      },
+      {
+        "type": "color",
+        "id": "color_purple_hover",
+        "label": "Purple Hover",
+        "default": "#7A61E4"
+      },
+      {
+        "type": "color",
+        "id": "color_deep_navy",
+        "label": "Deep Navy (Hero / Dark background)",
+        "default": "#000C2A"
+      },
+      {
+        "type": "color",
+        "id": "color_accent_yellow",
+        "label": "Accent Yellow (Pills & Badges)",
+        "default": "#FFDC73"
+      },
+      {
+        "type": "color",
+        "id": "color_off_white",
+        "label": "Off-White Background",
+        "default": "#FAFAF8"
+      },
+      {
+        "type": "color",
+        "id": "color_cream",
+        "label": "Cream Card Background",
+        "default": "#FFF9F2"
+      }
+    ]
+  },
+  {
+    "name": "Brand Assets & Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Brand Logo (Optional)"
+      }
+    ]
+  }
+]

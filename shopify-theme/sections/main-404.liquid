@@ -1,0 +1,17 @@
+<div class="container" style="padding: 120px 24px; text-align: center; min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+  <span class="badge-pill yellow" style="margin-bottom: 24px;">404</span>
+  <h1 style="font-size: 48px; font-weight: 700; color: #111318; margin-bottom: 16px;">Page Not Found</h1>
+  <p style="color: #6F6B65; font-size: 18px; max-width: 500px; margin-bottom: 32px;">
+    The page you are looking for doesn't exist or has been moved.
+  </p>
+  <a href="{{ routes.root_url }}" class="navbar-waitlist-btn" style="text-decoration: none;">
+    <span>Back to Home</span>
+  </a>
+</div>
+
+{% schema %}
+{
+  "name": "404 Page",
+  "settings": []
+}
+{% endschema %}

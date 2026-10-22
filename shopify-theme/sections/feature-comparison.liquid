@@ -1,0 +1,380 @@
+<section class="features-section" id="for-families">
+  <div class="container features-container">
+    <!-- ================= CARD 1: Before & After Tuition Comparison ================= -->
+    <div class="feature-block-card card-cream">
+      <div class="card-two-col card-1-grid">
+        <!-- Left Column: Visual comparison -->
+        <div class="comparison-visual-area">
+          <div class="comparison-cards-flow">
+            <!-- Tuition Due White Card -->
+            <div class="tuition-due-card">
+              <span class="badge-pill-tuition">Tuition Due</span>
+              <div class="amount-headline dark">{{ section.settings.tuition_due_amount | default: '$32,000' }}</div>
+              <div class="due-subtext">{{ section.settings.tuition_due_date | default: 'Due Aug 1' }}</div>
+            </div>
+
+            <!-- Arrow Pill (48x32 with stroke #111318) -->
+            <div class="comparison-arrow-pill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111318" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+
+            <!-- With Owek Purple Card -->
+            <div class="with-owek-card">
+              <span class="badge-pill-owek">With Owek</span>
+              <div class="amount-headline white">
+                <span class="amount-main">{{ section.settings.owek_monthly_amount | default: '$2,667/' }}</span>
+                <span class="amount-unit">{{ section.settings.owek_monthly_unit | default: ' mo*' }}</span>
+              </div>
+              <div class="owek-subtext">12 monthly payments</div>
+            </div>
+          </div>
+
+          <p class="comparison-footnote">
+            *Illustrative example only. Actual payment amounts, terms, rates and eligibility will vary and are subject to the financing options available at launch.
+          </p>
+        </div>
+
+        <!-- Right Column: Copy & Link -->
+        <div class="card-copy-content">
+          <div class="pill-row">
+            <span class="badge-pill yellow">Same Education</span>
+            <span class="badge-pill purple-outline">A More Flexible Way to Pay.</span>
+          </div>
+
+          <h2 class="block-title">
+            {{ section.settings.c1_title | default: 'From one big bill to a brighter future.' }}
+          </h2>
+
+          <p class="block-description">
+            {{ section.settings.c1_desc | default: 'Turn today’s tuition into manageable monthly payments — so your family can say yes to what matters.' }}
+          </p>
+
+          <div>
+            <a href="#how-it-works" class="purple-underlined-link">
+              <span class="link-text-underline">{{ section.settings.c1_link | default: 'See how it works' }}</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B72F5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="link-arrow-icon">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= CARD 2: For Families ================= -->
+    <div class="feature-block-card card-white" id="families-detail">
+      <div class="card-two-col card-2-grid">
+        <!-- Left: Copy -->
+        <div class="card-copy-content card-2-copy">
+          <span class="badge-pill yellow badge-fit">{{ section.settings.c2_badge | default: 'For Families' }}</span>
+          <h2 class="block-title">{{ section.settings.c2_title | default: 'Say yes to what matters.' }}</h2>
+          <p class="block-description">
+            {{ section.settings.c2_desc | default: 'More flexibility for private school tuition and summer camp costs.' }}
+          </p>
+          <div>
+            <button type="button" data-scroll-to="about" class="purple-underlined-link btn-as-link">
+              <span class="link-text-underline">{{ section.settings.c2_btn | default: 'Join the family waitlist' }}</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B72F5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="link-arrow-icon">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Image -->
+        <div class="card-media-wrap">
+          {%- if section.settings.c2_img != blank -%}
+            <img
+              src="{{ section.settings.c2_img | image_url: width: 1200 }}"
+              alt="{{ section.settings.c2_img.alt | default: 'Mother and daughter' | escape }}"
+              class="card-feature-image"
+              loading="lazy"
+            />
+          {%- else -%}
+            <img
+              src="{{ 'rectangle_6161_90731233.png' | asset_url }}"
+              alt="Mother helping daughter with backpack at home"
+              class="card-feature-image"
+              loading="lazy"
+            />
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= CARD 3: For Private Schools ================= -->
+    <div class="feature-block-card card-cream" id="for-schools">
+      <div class="card-two-col card-3-grid">
+        <!-- Left: Image -->
+        <div class="card-media-wrap">
+          {%- if section.settings.c3_img != blank -%}
+            <img
+              src="{{ section.settings.c3_img | image_url: width: 1200 }}"
+              alt="{{ section.settings.c3_img.alt | default: 'Students walking on campus' | escape }}"
+              class="card-feature-image"
+              loading="lazy"
+            />
+          {%- else -%}
+            <img
+              src="{{ 'rectangle_6161_7a2b3074.png' | asset_url }}"
+              alt="Two students with backpacks walking on school campus"
+              class="card-feature-image"
+              loading="lazy"
+            />
+          {%- endif -%}
+        </div>
+
+        <!-- Right: Copy -->
+        <div class="card-copy-content card-3-copy">
+          <span class="badge-pill yellow badge-fit">{{ section.settings.c3_badge | default: 'For Private Schools' }}</span>
+          <h2 class="block-title">{{ section.settings.c3_title | default: 'Give families more ways to stay.' }}</h2>
+          <p class="block-description">
+            {{ section.settings.c3_desc | default: 'Offer eligible families more flexibility around tuition while supporting enrollment and retention.' }}
+          </p>
+          <div>
+            <button type="button" data-scroll-to="contact" class="purple-underlined-link btn-as-link">
+              <span class="link-text-underline">{{ section.settings.c3_btn | default: 'Become a launch partner' }}</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B72F5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="link-arrow-icon">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= CARD 4: For Summer Camps ================= -->
+    <div class="feature-block-card card-white">
+      <div class="camps-vertical-content">
+        <!-- Centered Copy -->
+        <div class="camps-center-header">
+          <span class="badge-pill yellow badge-fit">{{ section.settings.c4_badge | default: 'For Summer Camps' }}</span>
+          <h2 class="block-title text-center">{{ section.settings.c4_title | default: 'Make another summer possible.' }}</h2>
+          <p class="block-description text-center">
+            {{ section.settings.c4_desc | default: 'Give families more flexibility to manage camp tuition while keeping enrollment within reach.' }}
+          </p>
+          <div>
+            <button type="button" data-scroll-to="contact" class="purple-underlined-link btn-as-link">
+              <span class="link-text-underline">{{ section.settings.c4_btn | default: 'Become a launch partner' }}</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B72F5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="link-arrow-icon">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- 4-Image Horizontal Row -->
+        <div class="camps-four-images-row">
+          <div class="camp-photo-box">
+            {%- if section.settings.camp_img1 != blank -%}
+              <img src="{{ section.settings.camp_img1 | image_url: width: 600 }}" alt="{{ section.settings.camp_img1.alt | escape }}" class="camp-photo-img" loading="lazy" />
+            {%- else -%}
+              <img src="{{ 'rectangle_6162_ae4de748.png' | asset_url }}" alt="Girl riding horse through forest trail" class="camp-photo-img" loading="lazy" />
+            {%- endif -%}
+          </div>
+          <div class="camp-photo-box">
+            {%- if section.settings.camp_img2 != blank -%}
+              <img src="{{ section.settings.camp_img2 | image_url: width: 600 }}" alt="{{ section.settings.camp_img2.alt | escape }}" class="camp-photo-img" loading="lazy" />
+            {%- else -%}
+              <img src="{{ 'rectangle_6163_f3532683.png' | asset_url }}" alt="Family kayaking on summer lake" class="camp-photo-img" loading="lazy" />
+            {%- endif -%}
+          </div>
+          <div class="camp-photo-box">
+            {%- if section.settings.camp_img3 != blank -%}
+              <img src="{{ section.settings.camp_img3 | image_url: width: 600 }}" alt="{{ section.settings.camp_img3.alt | escape }}" class="camp-photo-img" loading="lazy" />
+            {%- else -%}
+              <img src="{{ 'rectangle_6164_7f3c59cf.png' | asset_url }}" alt="Kids playing limbo game outdoors at camp" class="camp-photo-img" loading="lazy" />
+            {%- endif -%}
+          </div>
+          <div class="camp-photo-box">
+            {%- if section.settings.camp_img4 != blank -%}
+              <img src="{{ section.settings.camp_img4 | image_url: width: 600 }}" alt="{{ section.settings.camp_img4.alt | escape }}" class="camp-photo-img" loading="lazy" />
+            {%- else -%}
+              <img src="{{ 'rectangle_6161_e093b55d.png' | asset_url }}" alt="Boy laughing joyfully in water splash" class="camp-photo-img" loading="lazy" />
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Features & Cards",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Card 1: Tuition Comparison"
+    },
+    {
+      "type": "text",
+      "id": "tuition_due_amount",
+      "label": "Tuition Due Amount",
+      "default": "$32,000"
+    },
+    {
+      "type": "text",
+      "id": "tuition_due_date",
+      "label": "Tuition Due Date Tag",
+      "default": "Due Aug 1"
+    },
+    {
+      "type": "text",
+      "id": "owek_monthly_amount",
+      "label": "OweK Monthly Amount",
+      "default": "$2,667/"
+    },
+    {
+      "type": "text",
+      "id": "owek_monthly_unit",
+      "label": "OweK Monthly Unit",
+      "default": " mo*"
+    },
+    {
+      "type": "text",
+      "id": "c1_title",
+      "label": "Card 1 Title",
+      "default": "From one big bill to a brighter future."
+    },
+    {
+      "type": "textarea",
+      "id": "c1_desc",
+      "label": "Card 1 Description",
+      "default": "Turn today’s tuition into manageable monthly payments — so your family can say yes to what matters."
+    },
+    {
+      "type": "text",
+      "id": "c1_link",
+      "label": "Card 1 Link Text",
+      "default": "See how it works"
+    },
+    {
+      "type": "header",
+      "content": "Card 2: For Families"
+    },
+    {
+      "type": "text",
+      "id": "c2_badge",
+      "label": "Card 2 Badge",
+      "default": "For Families"
+    },
+    {
+      "type": "text",
+      "id": "c2_title",
+      "label": "Card 2 Title",
+      "default": "Say yes to what matters."
+    },
+    {
+      "type": "textarea",
+      "id": "c2_desc",
+      "label": "Card 2 Description",
+      "default": "More flexibility for private school tuition and summer camp costs."
+    },
+    {
+      "type": "text",
+      "id": "c2_btn",
+      "label": "Card 2 Button Text",
+      "default": "Join the family waitlist"
+    },
+    {
+      "type": "image_picker",
+      "id": "c2_img",
+      "label": "Card 2 Photo"
+    },
+    {
+      "type": "header",
+      "content": "Card 3: For Private Schools"
+    },
+    {
+      "type": "text",
+      "id": "c3_badge",
+      "label": "Card 3 Badge",
+      "default": "For Private Schools"
+    },
+    {
+      "type": "text",
+      "id": "c3_title",
+      "label": "Card 3 Title",
+      "default": "Give families more ways to stay."
+    },
+    {
+      "type": "textarea",
+      "id": "c3_desc",
+      "label": "Card 3 Description",
+      "default": "Offer eligible families more flexibility around tuition while supporting enrollment and retention."
+    },
+    {
+      "type": "text",
+      "id": "c3_btn",
+      "label": "Card 3 Button Text",
+      "default": "Become a launch partner"
+    },
+    {
+      "type": "image_picker",
+      "id": "c3_img",
+      "label": "Card 3 Photo"
+    },
+    {
+      "type": "header",
+      "content": "Card 4: For Summer Camps"
+    },
+    {
+      "type": "text",
+      "id": "c4_badge",
+      "label": "Card 4 Badge",
+      "default": "For Summer Camps"
+    },
+    {
+      "type": "text",
+      "id": "c4_title",
+      "label": "Card 4 Title",
+      "default": "Make another summer possible."
+    },
+    {
+      "type": "textarea",
+      "id": "c4_desc",
+      "label": "Card 4 Description",
+      "default": "Give families more flexibility to manage camp tuition while keeping enrollment within reach."
+    },
+    {
+      "type": "text",
+      "id": "c4_btn",
+      "label": "Card 4 Button Text",
+      "default": "Become a launch partner"
+    },
+    {
+      "type": "image_picker",
+      "id": "camp_img1",
+      "label": "Camp Gallery Photo 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "camp_img2",
+      "label": "Camp Gallery Photo 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "camp_img3",
+      "label": "Camp Gallery Photo 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "camp_img4",
+      "label": "Camp Gallery Photo 4"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Features & Cards"
+    }
+  ]
+}
+{% endschema %}

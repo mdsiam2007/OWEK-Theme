@@ -1,0 +1,142 @@
+<header class="navbar-header" id="navbar">
+  <div class="navbar-inner">
+    <!-- Brand Logo -->
+    <a href="{{ routes.root_url }}" class="navbar-brand-link">
+      {%- if section.settings.logo != blank -%}
+        <img 
+          src="{{ section.settings.logo | image_url: width: 280 }}" 
+          alt="{{ shop.name | escape }}" 
+          class="navbar-brand-logo" 
+          style="object-fit: contain;" 
+        />
+      {%- else -%}
+        <img 
+          src="{{ '214_8.svg' | asset_url }}" 
+          alt="oweK" 
+          class="navbar-brand-logo"
+          width="140"
+          height="39"
+        />
+      {%- endif -%}
+    </a>
+
+    <!-- Centered Navigation Links -->
+    <nav class="navbar-center-nav desktop-only">
+      {%- if section.settings.menu != blank -%}
+        {%- for link in linklists[section.settings.menu].links -%}
+          <a href="{{ link.url }}" class="nav-item-link">{{ link.title }}</a>
+        {%- endfor -%}
+      {%- else -%}
+        <a href="#about" class="nav-item-link">About</a>
+        <a href="#for-families" class="nav-item-link">For Families</a>
+        <a href="#for-schools" class="nav-item-link">For Schools &amp; Camps</a>
+        <a href="#faq" class="nav-item-link">FAQ</a>
+        <a href="#contact" class="nav-item-link">Contact Us</a>
+      {%- endif -%}
+    </nav>
+
+    <!-- Right CTA Button matching Frame 1413374311 -->
+    <div class="navbar-action-col desktop-only">
+      <button 
+        type="button" 
+        data-scroll-to="about"
+        class="navbar-waitlist-btn"
+      >
+        <span>{{ section.settings.waitlist_btn | default: 'Join the waitlist' }}</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="nav-btn-arrow">
+          <path d="M5.25 12H18.75" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12.75 6L18.75 12L12.75 18" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Hamburger Toggle -->
+    <button 
+      type="button" 
+      class="mobile-menu-toggle mobile-only" 
+      aria-label="Open menu"
+    >
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#111318" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Full Screen Mobile Menu Drawer matching Frame 1982250901 -->
+  <div id="owek-mobile-menu" class="full-mobile-menu">
+    <div class="mobile-menu-header">
+      <a href="{{ routes.root_url }}" class="menu-logo-link">
+        {%- if section.settings.logo != blank -%}
+          <img src="{{ section.settings.logo | image_url: width: 280 }}" alt="{{ shop.name | escape }}" class="navbar-brand-logo" style="object-fit: contain;" />
+        {%- else -%}
+          <div class="logo-container" style="display: inline-flex; align-items: center; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 42px; letter-spacing: -2px; line-height: 1; user-select: none; text-decoration: none;">
+            <span style="color: #111318;">owe</span>
+            <span style="color: #8B72F5;">K</span>
+          </div>
+        {%- endif -%}
+      </a>
+      <button 
+        type="button" 
+        class="mobile-menu-close" 
+        aria-label="Close menu"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111318" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="mobile-menu-nav">
+      {%- if section.settings.menu != blank -%}
+        {%- for link in linklists[section.settings.menu].links -%}
+          <div class="mobile-nav-item">
+            <a href="{{ link.url }}" class="mobile-nav-link">{{ link.title }}</a>
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        <div class="mobile-nav-item">
+          <a href="#about" class="mobile-nav-link">About</a>
+        </div>
+        <div class="mobile-nav-item">
+          <a href="#for-families" class="mobile-nav-link">For Families</a>
+        </div>
+        <div class="mobile-nav-item">
+          <a href="#for-schools" class="mobile-nav-link">For Schools &amp; Camps</a>
+        </div>
+        <div class="mobile-nav-item">
+          <a href="#faq" class="mobile-nav-link">FAQ</a>
+        </div>
+        <div class="mobile-nav-item">
+          <a href="#contact" class="mobile-nav-link">Contact Us</a>
+        </div>
+      {%- endif -%}
+    </nav>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Navigation Bar",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Custom Logo Image"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Navigation Menu (Optional)"
+    },
+    {
+      "type": "text",
+      "id": "waitlist_btn",
+      "label": "Waitlist Button Label",
+      "default": "Join the waitlist"
+    }
+  ]
+}
+{% endschema %}

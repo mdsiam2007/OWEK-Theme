@@ -1,0 +1,184 @@
+<section class="how-it-works-section" id="how-it-works" style="{% if section.settings.wave_color != blank %}--wave-bg: {{ section.settings.wave_color }};{% endif %}">
+  <!-- Navy Wave Backdrop at bottom -->
+  <div class="how-wave-bg">
+    <img 
+      src="{{ '214_278.svg' | asset_url }}" 
+      alt="" 
+      class="how-wave-img"
+    />
+  </div>
+
+  <div class="how-it-works-container">
+    <!-- Header -->
+    <div class="section-header-center">
+      <div class="how-badge-pill">
+        <span>{{ section.settings.badge | default: 'Simple, straightforward, predictable.' }}</span>
+      </div>
+      <h2 class="section-title">{{ section.settings.title | default: 'How OweK works' }}</h2>
+    </div>
+
+    <!-- 3 Step Cards Grid / Mobile Carousel -->
+    <div class="steps-grid">
+      <!-- Step 1 -->
+      <div class="step-card">
+        <div class="step-graphic-box">
+          <img 
+            src="{{ '214_285.svg' | asset_url }}" 
+            alt="Apply online illustration" 
+            class="step-svg-img"
+          />
+        </div>
+        <div class="step-pill-wrapper">
+          <span class="step-pill-tag">STEP-1</span>
+        </div>
+        <div class="step-card-content">
+          <h3 class="step-card-title">{{ section.settings.s1_title | default: 'Apply online' }}</h3>
+          <p class="step-card-desc">
+            {{ section.settings.s1_desc | default: 'A quick and secure application to see the financing options available to you.' }}
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step-card">
+        <div class="step-graphic-box">
+          <img 
+            src="{{ '214_306.svg' | asset_url }}" 
+            alt="Choose a plan illustration" 
+            class="step-svg-img"
+          />
+        </div>
+        <div class="step-pill-wrapper">
+          <span class="step-pill-tag">STEP-2</span>
+        </div>
+        <div class="step-card-content">
+          <h3 class="step-card-title">{{ section.settings.s2_title | default: 'Choose a plan' }}</h3>
+          <p class="step-card-desc">
+            {{ section.settings.s2_desc | default: 'Select from the financing options available to you.*' }}
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step-card">
+        <div class="step-graphic-box">
+          <img 
+            src="{{ '214_343.svg' | asset_url }}" 
+            alt="Get back to what matters illustration" 
+            class="step-svg-img"
+          />
+        </div>
+        <div class="step-pill-wrapper">
+          <span class="step-pill-tag">STEP-3</span>
+        </div>
+        <div class="step-card-content">
+          <h3 class="step-card-title">{{ section.settings.s3_title | default: 'Get back to what matters' }}</h3>
+          <p class="step-card-desc">
+            {{ section.settings.s3_desc | default: 'Once approved, funds are sent directly to your school or camp.' }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Scroll Progress Indicator -->
+    <div class="how-progress-bar-wrap">
+      <div class="how-progress-track">
+        <div class="how-progress-thumb"></div>
+      </div>
+    </div>
+
+    <!-- Bottom Disclaimer Pill -->
+    <div class="how-disclaimer-container">
+      <div class="how-disclaimer-bar">
+        <p class="how-disclaimer-text">
+          <span class="disclaimer-star">*</span>{{ section.settings.disclaimer | default: 'Final financing terms, eligibility, rates and availability will depend on OweK’s lending program and participating financial institution.' }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "How It Works",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge Text",
+      "default": "Simple, straightforward, predictable."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Heading",
+      "default": "How OweK works"
+    },
+    {
+      "type": "header",
+      "content": "Step 1"
+    },
+    {
+      "type": "text",
+      "id": "s1_title",
+      "label": "Step 1 Title",
+      "default": "Apply online"
+    },
+    {
+      "type": "textarea",
+      "id": "s1_desc",
+      "label": "Step 1 Description",
+      "default": "A quick and secure application to see the financing options available to you."
+    },
+    {
+      "type": "header",
+      "content": "Step 2"
+    },
+    {
+      "type": "text",
+      "id": "s2_title",
+      "label": "Step 2 Title",
+      "default": "Choose a plan"
+    },
+    {
+      "type": "textarea",
+      "id": "s2_desc",
+      "label": "Step 2 Description",
+      "default": "Select from the financing options available to you.*"
+    },
+    {
+      "type": "header",
+      "content": "Step 3"
+    },
+    {
+      "type": "text",
+      "id": "s3_title",
+      "label": "Step 3 Title",
+      "default": "Get back to what matters"
+    },
+    {
+      "type": "textarea",
+      "id": "s3_desc",
+      "label": "Step 3 Description",
+      "default": "Once approved, funds are sent directly to your school or camp."
+    },
+    {
+      "type": "textarea",
+      "id": "disclaimer",
+      "label": "Bottom Disclaimer Pill Text",
+      "default": "Final financing terms, eligibility, rates and availability will depend on OweK’s lending program and participating financial institution."
+    },
+    {
+      "type": "color",
+      "id": "wave_color",
+      "label": "Wave Backdrop Color",
+      "default": "#000C2A"
+    }
+  ],
+  "presets": [
+    {
+      "name": "How It Works"
+    }
+  ]
+}
+{% endschema %}
