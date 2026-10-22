@@ -10,6 +10,7 @@ import ContactUs from './components/ContactUs';
 import CtaSection from './components/CtaSection';
 import Footer from './components/Footer';
 import SuccessModal from './components/SuccessModal';
+import ProjectInfoModal from './components/ProjectInfoModal';
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -85,6 +86,9 @@ export default function App() {
         isOpen={successModalOpen}
         onClose={() => setSuccessModalOpen(false)}
       />
+
+      {/* Visitor Welcome & Multi-Platform Information Modal */}
+      <ProjectInfoModal />
     </div>
   );
 }
